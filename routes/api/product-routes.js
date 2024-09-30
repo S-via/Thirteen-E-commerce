@@ -16,7 +16,7 @@ router.get('/', async (req, res) => {
         },
         {
           model: Tag,
-          //Product Tag??
+          through: ProductTag, //Product Tag??
           required: false,
         }]
       });
@@ -40,9 +40,9 @@ router.get('/:id', async (req, res) => {
         },
         {
           model: Tag,
+          through: ProductTag, // Product Tag???
           requires: false,
         }]
-        // Product Tag???
       });
     if (!productData) {
       res.status(404).json({ message: 'no location of id' });
